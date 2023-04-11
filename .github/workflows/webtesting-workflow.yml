@@ -3,7 +3,33 @@ run-name: On Push - Web Tests Run
 on: [push]
 
 jobs:
-  test:
+  web-tests:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo "Hello World!"
+      - name: Checkout
+        uses: actions/checkout@v3
+ 
+      - name: Install Python 3.10
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Node.js 19.1
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19.1'
+      
+      - name: Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install -U -r requirements.txt
+          sudo npm install @playwright/test
+          sudo npx playwright install-deps
+          rfbrowser init
+
+      - name: Test Install
+        run: |
+          python --version
+          node --version
+          robot --version
+          pip list
