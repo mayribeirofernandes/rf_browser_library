@@ -46,6 +46,12 @@ jobs:
           if-no-files-found: ignore
           retention-days: 2
           
+      - name: Download Tests Results
+        if: always()
+        uses: actions/download-artifact@v1
+        with:
+          name: results-${{ matrix.browser }}
+              
       - name: Send Report
         if: always()
         uses: joonvena/robotframework-reporter-action@v2.1
