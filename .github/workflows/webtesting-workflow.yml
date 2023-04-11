@@ -36,7 +36,7 @@ jobs:
           robot -d ./results -v HEADLESS:true \
           -v BROWSER:${{ matrix.browser }} tests
 
-            - name: Upload Tests Results
+      - name: Upload Tests Results
         if: always()
         uses: actions/upload-artifact@v3
         with:
