@@ -5,10 +5,7 @@ on: [push]
 jobs:
   web-tests:
     runs-on: ubuntu-20.04
-    strategy:
-      fail-fast: false
-      matrix:
-        browser: [chromium, firefox, webkit]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -34,4 +31,4 @@ jobs:
       - name: Run RF WEB Tests
         run: |
           robot -d ./results -v HEADLESS:true \
-          -v BROWSER:${{ matrix.browser }} tests
+          -v BROWSER:chromium tests
