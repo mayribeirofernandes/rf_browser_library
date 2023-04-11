@@ -26,3 +26,8 @@ jobs:
           sudo npm install @playwright/test
           sudo npx playwright install-deps
           rfbrowser init
+
+      - name: Run RF WEB Tests
+        run: |
+          robot -d ./results -v HEADLESS:true \
+          -v BROWSER:chromium tests
