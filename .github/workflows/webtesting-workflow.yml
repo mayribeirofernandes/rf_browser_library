@@ -26,10 +26,3 @@ jobs:
           sudo npm install @playwright/test
           sudo npx playwright install-deps
           rfbrowser init
-
-      - name: Test Install
-        run: |
-          python --version
-          node --version
-          robot --version
-          pip list
