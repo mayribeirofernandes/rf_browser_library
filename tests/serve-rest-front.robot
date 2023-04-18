@@ -2,12 +2,11 @@
 Resource        ../resources/serve-rest-front.resource
 Suite Setup     Cadastrar Usuário e Logar
 Suite Teardown  Close Browser  ALL
-Default Tags    serve_rest_tests
 
 
 *** Test Cases ***
 Login com sucesso Serve Rest Front
-    [Tags]  login
+    [Tags]  login  serve_rest_tests
     Abrir o navegador
     Ir para o site Serve Rest Front
     Preencher os dados do novo usuário e cadastrar
